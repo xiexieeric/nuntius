@@ -66,7 +66,39 @@
 
 								<article>
 									<header>
-										<h2>Content Coming Soon</h2>
+										<h2>Sign Up with Nuntius</h2>
+										<form>
+											<div class="row 50%">
+												<div class="4u 12u(mobilep)">
+													<input type="text" name="fname" id="fname" placeholder="First Name" />
+												</div>
+												<div class="4u 12u(mobilep)">
+													<input type="text" name="lname" id="lname" placeholder="Last Name" />
+												</div>
+												<div class="4u 12u(mobilep)">
+													<input type="email" name="email" id="email" placeholder="Email" />
+												</div>
+											</div>
+											<div class="row 50%">
+												<div class="6u 12u(mobilep)">
+													<input type="text" name="address" id="address" placeholder="Street Address" />
+												</div>
+												<div class="3u 12u(mobilep)">
+													<input type="text" name="city" id="city" placeholder="City" />
+												</div>
+												<div class="1u 12u(mobilep)">
+													<input type="text" name="state" id="state" placeholder="State" />
+												</div>
+												<div class="2u 12u(mobilep)">
+													<input type="text" name="zip" id="zip" placeholder="Zip Code" />
+												</div>
+											</div>
+											<div class="row 50%">
+												<div class="12u">
+														<input type="submit" class="button alt" value="Sign Up" />
+												</div>
+											</div>
+										</form>
 									</header>
 								</article>
 
@@ -135,3 +167,28 @@
 
 	</body>
 </html>
+
+<?php
+// define variables and set to empty values
+$fname = $lname= $email = $address = $city = $state = $zip= "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $fname = $_POST["fname"];
+	$lname = $_POST["lname"];
+  $email = $_POST["email"];
+  $address = $_POST["address"];
+  $city = $_POST["city"];
+  $state = $_POST["state"];
+	$zip = $_POST["zip"];
+	if (test_input($fname, $lname, $email, $address, $city, $state, $zip))
+		
+}
+
+function test_input($fname, $lname, $email, $address, $city, $state, $zip) {
+	$ret = false;
+  $fname = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+?>
