@@ -5,6 +5,10 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 
+<?php
+	$db = mysqli_connect('localhost','root','demo','userData')
+	or die("Could not reach server")
+?>
 <html>
 	<head>
 		<title>Sign Up - Nuntius</title>
@@ -22,12 +26,12 @@
 				<div id="header">
 
 					<!-- Logo -->
-						<h1><a href="index.html"><img id="logo" src="images/logo.png" alt="Nuntius"></a></h1>
+						<h1><a href="index.php"><img id="logo" src="images/logo.png" alt="Nuntius"></a></h1>
 
 					<!-- Nav -->
 						<nav id="nav">
 							<ul>
-								<li><a href="index.html">Home</a></li>
+								<li><a href="index.php">Home</a></li>
 			<!--					<li>
 									<a href="#">Dropdown</a>
 									<ul>
@@ -51,8 +55,8 @@
 								<li><a href="right-sidebar.html">Right Sidebar</a></li>
 								<li><a href="two-sidebar.html">Two Sidebar</a></li>
 			-->
-								<li><a href="about.html">About Us</a></li>
-								<li class="current"><a href="signup.html">Sign Up</a></li>
+								<li><a href="about.php">About Us</a></li>
+								<li class="current"><a href="signup.php">Sign Up</a></li>
 							</ul>
 						</nav>
 
@@ -82,9 +86,9 @@
 							<section class="6u 6u(narrower) 12u$(mobilep)">
 								<h3>Links</h3>
 								<ul class="links">
-									<li><a href="index.html">Home</a></li>
-									<li><a href="about.html">About</a></li>
-									<li><a href="signup.html">Sign Up</a></li>
+									<li><a href="index.php">Home</a></li>
+									<li><a href="about.php">About</a></li>
+									<li><a href="signup.php">Sign Up</a></li>
 								</ul>
 							</section>
 							<section class="6u 12u(narrower)">
