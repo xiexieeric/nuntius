@@ -4,10 +4,9 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-
 <html>
 	<head>
-		<title>Sign Up - Nuntius</title>
+		<title>About Us - Nuntius</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -22,12 +21,12 @@
 				<div id="header">
 
 					<!-- Logo -->
-						<h1><a href="index.html"><img id="logo" src="images/logo.png" alt="Nuntius"></a></h1>
+						<h1><a href="index.php"><img id="logo" src="images/logo.png" alt="Nuntius"></a></h1>
 
 					<!-- Nav -->
 						<nav id="nav">
 							<ul>
-								<li><a href="index.html">Home</a></li>
+								<li><a href="index.php">Home</a></li>
 			<!--					<li>
 									<a href="#">Dropdown</a>
 									<ul>
@@ -51,8 +50,8 @@
 								<li><a href="right-sidebar.html">Right Sidebar</a></li>
 								<li><a href="two-sidebar.html">Two Sidebar</a></li>
 			-->
-								<li><a href="about.html">About Us</a></li>
-								<li class="current"><a href="signup.html">Sign Up</a></li>
+								<li class="current"><a href="about.php">About Us</a></li>
+								<li><a href="signup.php">Sign Up</a></li>
 							</ul>
 						</nav>
 
@@ -67,43 +66,44 @@
 
 								<article>
 									<header>
-										<h2>Sign Up with Nuntius</h2>
-										<form>
-											<div class="row 50%">
-												<div class="4u 12u(mobilep)">
-													<input type="text" name="fname" id="fname" placeholder="First Name" />
-												</div>
-												<div class="4u 12u(mobilep)">
-													<input type="text" name="lname" id="lname" placeholder="Last Name" />
-												</div>
-												<div class="4u 12u(mobilep)">
-													<input type="email" name="email" id="email" placeholder="Email" />
-												</div>
-											</div>
-											<div class="row 50%">
-												<div class="6u 12u(mobilep)">
-													<input type="text" name="address" id="address" placeholder="Street Address" />
-												</div>
-												<div class="3u 12u(mobilep)">
-													<input type="text" name="city" id="city" placeholder="City" />
-												</div>
-												<div class="1u 12u(mobilep)">
-													<input type="text" name="state" id="state" placeholder="State" />
-												</div>
-												<div class="2u 12u(mobilep)">
-													<input type="text" name="zip" id="zip" placeholder="Zip Code" />
-												</div>
-											</div>
-											<div class="row 50%">
-												<div class="12u">
-														<input type="submit" class="button alt" value="Sign Up" />
-												</div>
-											</div>
-										</form>
+										<h2>Our Mission</h2>
+										<p>All content, all the time.</p>
 									</header>
-								</article>
 
+									<!-- <span class="image featured"><img style="width:70%;margin-left:auto;margin-right:auto;" src="images/coffee.jpg" alt="" /></span>
+-->
+									<p>Currently, there is an abundance of news and information available online. With so many sources available,
+									users have to manage multiple accounts and subscriptions just to get their fair dose of news. At Nuntius,
+									we believe that a central news hub is long overdue. So we delivered. With us, you can follow all the sources you want,
+									all the time, with just one account.</p>
+									<h3>How it Works</h3>
+									<p>With Nuntius, users pick and choose exactly which news sources to subscribe to, and get rewarded with discounts on bundled subscriptions that we negotiate for you!
+									We offer all the most popular publications and more, so you can manage all of your subscriptions with just one account. Once signed-in, you can access all your subscriptions
+									from our website without having to login again.
+									Simply click Sign-Up below and choose your publications to get quote, and sign-in to Nuntius on any computer to access those subscriptions.</p>
+									<h3>Advantages</h3>
+									<p><strong>Simple:</strong> Subscribing to multiple publications means managing an account for each website. Between memorizing passwords and renewals, reading becomes a pain. Using Nuntius,
+									we manage your subscriptions for you. Log in once from our website, and access to all your subscriptions from one location. We also handle payment, so no more keeping track of
+									when those subscriptions expire.</p>
+									<p><strong>Customizable:</strong> Unlike cable TV, we never force you to subscribe to publications that you don't want to read. With no contracts, bundles, or ads, you get exactly what you want, when you want it</p>
+									<p><strong>Save:</strong> You'll love keeping track of your news on Nuntius, and your wallet will too. We reward users who subscribe to multiple publications by offering unbeatable deals. The more you buy, the more you save
+									over traditional subscriptions.</p>
+									<h3>About Us</h3>
+									<p>As a multifaceted group of students, we found ourselves using over a dozen news sources to get our information. From
+									sports to politics and entertainment to world news, there is just too much going on to have one source. However, we constantly
+									found ourselves burdened with the need to log in, update payment information, and manage subscriptions individually. After
+									developing a system for integrating our accounts, we only had one thing left to do. Our friends got wind of it and just a couple
+									of months later our site went live.</p>
+								</article>
 						</div>
+					</div>
+				</section>
+				<section id="cta" class="wrapper style3">
+					<div class="container">
+						<header>
+							<h2>Start using Nuntius today</h2>
+							<a href="signup.php" class="button">Subscribe</a>
+						</header>
 					</div>
 				</section>
 
@@ -114,9 +114,9 @@
 							<section class="6u 6u(narrower) 12u$(mobilep)">
 								<h3>Links</h3>
 								<ul class="links">
-									<li><a href="index.html">Home</a></li>
-									<li><a href="about.html">About</a></li>
-									<li><a href="signup.html">Sign Up</a></li>
+									<li><a href="index.php">Home</a></li>
+									<li><a href="about.php">About</a></li>
+									<li><a href="signup.php">Sign Up</a></li>
 								</ul>
 							</section>
 							<section class="6u 12u(narrower)">
@@ -168,28 +168,3 @@
 
 	</body>
 </html>
-
-<?php
-// define variables and set to empty values
-$fname = $lname= $email = $address = $city = $state = $zip= "";
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $fname = $_POST["fname"];
-	$lname = $_POST["lname"];
-  $email = $_POST["email"];
-  $address = $_POST["address"];
-  $city = $_POST["city"];
-  $state = $_POST["state"];
-	$zip = $_POST["zip"];
-	if (test_input($fname, $lname, $email, $address, $city, $state, $zip))
-		
-}
-
-function test_input($fname, $lname, $email, $address, $city, $state, $zip) {
-	$ret = false;
-  $fname = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
-  return $data;
-}
-?>
