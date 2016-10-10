@@ -4,10 +4,6 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-<?php
-	$db = mysqli_connect('localhost','root','demo','userData')
-	or die("Could not reach server")
-?>
 <html>
 	<head>
 		<title>Sign Up - Nuntius</title>
@@ -25,12 +21,12 @@
 				<div id="header">
 
 					<!-- Logo -->
-						<h1><a href="index.html"><img id="logo" src="images/logo.png" alt="Nuntius"></a></h1>
+						<h1><a href="index.php"><img id="logo" src="images/logo.png" alt="Nuntius"></a></h1>
 
 					<!-- Nav -->
 						<nav id="nav">
 							<ul>
-								<li><a href="index.html">Home</a></li>
+								<li><a href="index.php">Home</a></li>
 			<!--					<li>
 									<a href="#">Dropdown</a>
 									<ul>
@@ -54,8 +50,8 @@
 								<li><a href="right-sidebar.html">Right Sidebar</a></li>
 								<li><a href="two-sidebar.html">Two Sidebar</a></li>
 			-->
-								<li><a href="about.html">About Us</a></li>
-								<li class="current"><a href="signup.html">Sign Up</a></li>
+								<li><a href="about.php">About Us</a></li>
+								<li class="current"><a href="signup.php">Sign Up</a></li>
 							</ul>
 						</nav>
 
@@ -71,7 +67,9 @@
 								<article>
 									<header>
 										<h2>Sign Up with Nuntius</h2>
-										<form>
+										<form method="post" action="<?php
+										echo htmlspecialchars($_SERVER["PHP_SELF"]);
+										?>">
 											<div class="row 50%">
 												<div class="4u 12u(mobilep)">
 													<input type="text" name="fname" id="fname" placeholder="First Name" />
@@ -99,7 +97,7 @@
 											</div>
 											<div class="row 50%">
 												<div class="12u">
-														<input type="submit" class="button alt" value="Sign Up" />
+														<input type="submit" class="button alt" onclick="getInput()" value="Sign Up" />
 												</div>
 											</div>
 										</form>
@@ -117,9 +115,9 @@
 							<section class="6u 6u(narrower) 12u$(mobilep)">
 								<h3>Links</h3>
 								<ul class="links">
-									<li><a href="index.html">Home</a></li>
-									<li><a href="about.html">About</a></li>
-									<li><a href="signup.html">Sign Up</a></li>
+									<li><a href="index.php">Home</a></li>
+									<li><a href="about.php">About</a></li>
+									<li><a href="signup.php">Sign Up</a></li>
 								</ul>
 							</section>
 							<section class="6u 12u(narrower)">
@@ -171,28 +169,68 @@
 
 	</body>
 </html>
-
-<?php
-// define variables and set to empty values
-$fname = $lname= $email = $address = $city = $state = $zip= "";
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $fname = $_POST["fname"];
-	$lname = $_POST["lname"];
-  $email = $_POST["email"];
-  $address = $_POST["address"];
-  $city = $_POST["city"];
-  $state = $_POST["state"];
-	$zip = $_POST["zip"];
-	if (test_input($fname, $lname, $email, $address, $city, $state, $zip))
+<?php $valid = True;
+		// define variables and set to empty values
+	$fname = $lname= $email = $address = $city = $state = $zip= "";
+	$fieldError = "";
+	if ($_SERVER["REQUEST_METHOD"] == "POST")
+	{
+		$fname = $_POST["fname"];
+		$lname = $_POST["lname"];
+		$email = $_POST["email"];
+		$address = $_POST["address"];
+		$city = $_POST["city"];
+		$state = $_POST["state"];
+		$zip = $_POST["zip"];
 		
-}
+		if (!(preg_match("/^[a-zA-Z]+$/",$fname) && preg_match("/^[a-zA-Z]+$/",$lname)))
+		{
+			$fieldError.= "Names can only contain letters a-z.\\n";
+			$valid = False;
+		}
+		
+		if (!preg_match("/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/",$email))
+			{
+				$fieldError.= "Please enter a valid email.\\n";
+				$valid = False;
+			}
+		if (!preg_match("/^\s*\S+(?:\s+\S+){2,5}/",$address))
+			{
+				$fieldError.= "Please enter a valid address.\\n";
+				$valid = False;
+			}
+		if (!preg_match("/^[a-zA-Z]+$/",$city))
+		{
+			$fieldError.= "City names can only contain letters a-z.\\n";
+			$valid = False;
+		}
+		if (!preg_match("/^[a-zA-Z]{2}$/", $state))
+			{
+				$fieldError.= "Please enter the two letter state abbreviation.\\n";
+				$valid = False;
+			}
+		if (!preg_match("/^\d{5}(?:[-\s]\d{4})?$/", $zip))
+			{
+				$fieldError.= "Please enter a valid zipcode.\\n";
+				$valid = False;
+			}
+			//$fieldError = 'alert(' . $fieldError . ')';
+			//echo $fieldError;
+		if($valid)
+		{
+			//echo '<script type = "text/javascript">';
+			//echo 'alert(" . $fieldError . ")';
+			//echo '</script>';
+			header("Location: localhost/thankyou.php");
+			
+		}
+		else
+		{
+			echo '<script type="text/javascript">alert("'.$fieldError.'");</script>';
+				
+		}
+			
+	}
+	
 
-function test_input($fname, $lname, $email, $address, $city, $state, $zip) {
-	$ret = false;
-  $fname = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
-  return $data;
-}
 ?>

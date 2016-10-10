@@ -4,10 +4,20 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-
 <?php
-	$db = mysqli_connect('localhost','root','demo','userData')
-	or die("Could not reach server")
+
+	$con = mysqli_connect("localhost","root","demo","userdata");
+	if (mysqli_connect_errno())
+		echo "could not reach server";
+
+
+
+	$sql = "INSERT INTO customers (fName,lName,Email,Address,City,State,Zip) VALUES ('$fname','$lname','$email','$address','$city','$state','$zip')";
+	if (mysqli_query($con,$sql)) {
+    //echo "New record created successfully";
+} else {
+    //echo "Error: " . $sql . "<br>" . $con->error;
+}
 ?>
 <html>
 	<head>
@@ -56,7 +66,7 @@
 								<li><a href="two-sidebar.html">Two Sidebar</a></li>
 			-->
 								<li><a href="about.php">About Us</a></li>
-								<li class="current"><a href="signup.php">Sign Up</a></li>
+								<li><a href="signup.php">Sign Up</a></li>
 							</ul>
 						</nav>
 
@@ -71,7 +81,7 @@
 
 								<article>
 									<header>
-										<h2>Content Coming Soon</h2>
+										<h2>Thank you for signing up!</h2>
 									</header>
 								</article>
 
@@ -140,3 +150,5 @@
 
 	</body>
 </html>
+
+
