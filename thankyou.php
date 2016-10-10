@@ -70,7 +70,7 @@
 
 								<article>
 									<header>
-										<h2>Thank you for signing up!</h2>
+										<h2>Thank you for signing up for signing up with Nuntius! Your account will be activated soon and you can begin accessing content.</h2>
 									</header>
 								</article>
 
