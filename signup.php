@@ -4,6 +4,9 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
+<?php
+ob_start();
+?>
 <html>
 	<head>
 		<title>Sign Up - Nuntius</title>
@@ -169,7 +172,8 @@
 
 	</body>
 </html>
-<?php $valid = True;
+<?php
+ $valid = True;
 		// define variables and set to empty values
 	$fname = $lname= $email = $address = $city = $state = $zip= "";
 	$fieldError = "";
@@ -221,7 +225,20 @@
 			//echo '<script type = "text/javascript">';
 			//echo 'alert(" . $fieldError . ")';
 			//echo '</script>';
-			header("Location: localhost/thankyou.php");
+		$con = mysqli_connect("localhost","root","demo","userdata");
+		if (mysqli_connect_errno())
+			echo "could not reach server";
+
+
+
+		$sql = "INSERT INTO customers (fName,lName,Email,Address,City,State,Zip) VALUES ('$fname','$lname','$email','$address','$city','$state','$zip')";
+		if (mysqli_query($con,$sql)) {
+			echo "New record created successfully";
+			header("Location: thankyou.php");
+		} else {
+			echo "Error: " . $sql . "<br>" . $con->error;
+		}
+			
 			
 		}
 		else

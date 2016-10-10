@@ -6,18 +6,7 @@
 -->
 <?php
 
-	$con = mysqli_connect("localhost","root","demo","userdata");
-	if (mysqli_connect_errno())
-		echo "could not reach server";
-
-
-
-	$sql = "INSERT INTO customers (fName,lName,Email,Address,City,State,Zip) VALUES ('$fname','$lname','$email','$address','$city','$state','$zip')";
-	if (mysqli_query($con,$sql)) {
-    //echo "New record created successfully";
-} else {
-    //echo "Error: " . $sql . "<br>" . $con->error;
-}
+	
 ?>
 <html>
 	<head>
