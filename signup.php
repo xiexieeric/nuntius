@@ -6,7 +6,21 @@
 -->
 <?php
 ob_start();
+    /*
+        * Home Page - has Sample Buyer credentials, Camera (Product) Details and Instructiosn for using the code sample
+    */
+    include('apiCallsData.php');
+
 ?>
+<script type="text/javascript">
+   window.paypalCheckoutReady = function () {
+       paypal.checkout.setup('ATZ8sP5hONjDgjdsIasLbZP9BWG_QcgF1Vb37yzmpd-_mfRdVOh40GpQcfSyrUKcPMd4W1NUESYK-Ueh', {
+           container: 'myContainer', //{String|HTMLElement|Array} where you want the PayPal button to reside
+           environment: 'sandbox' //or 'production' depending on your environment
+       });
+   };
+</script>
+<script src="//www.paypalobjects.com/api/checkout.js" async></script>
 <html>
 	<head>
 		<title>Sign Up - Nuntius</title>
@@ -64,12 +78,26 @@ ob_start();
 				<section class="wrapper style1">
 					<div class="container">
 						<div id="content">
+						
 
 							<!-- Content -->
 
 								<article>
 									<header>
-										<h2>Sign Up with Nuntius</h2>
+										
+										<form id="myContainer" action="/startPayment.php" method="post">
+											<input type="hidden" name="csrf" value="<?php echo($_SESSION['csrf']);?>"/>
+											Camera:<input type="text" name="camera_amount" value="300" readonly></input><br>
+											Tax:<input type="text" name="tax" value="5" readonly></input><br>
+											Insurance:<input type="text" name="insurance" value="10" readonly></input><br>
+											Handling:<input type="text" name="handling_fee" value="5" readonly></input><br>
+											Est. Shipping:<input type="text" name="estimated_shipping" value="2" readonly></input><br>
+											Shipping Discount:<input type="text" name="shipping_discount" value="-2" readonly></input><br>
+											Total:<input type="text" name="total_amount" value="320" readonly></input><br>
+											Currency:<input type="text" name="currencyCodeType" value="USD" readonly></input><br>
+										</form>
+
+										<h2>Sign Up with Nuntius - Personal Info</h2>
 										<form method="post" action="<?php
 										echo htmlspecialchars($_SERVER["PHP_SELF"]);
 										?>">
@@ -96,6 +124,20 @@ ob_start();
 												</div>
 												<div class="2u 12u(mobilep)">
 													<input type="text" name="zip" id="zip" placeholder="Zip Code" required pattern="\d{5}(?:[-\s]\d{4})?" title="Please enter a valid zipcode"/>
+												</div>
+											</div>
+											<header>
+												<h2>Payment Info</h2>
+											</header>
+											<div class="row 50%">
+												<div class="4u 12u(mobilep)">
+													<input type="text" name="cardnum" id="cardnum" placeholder="Card Number" required pattern="(?:4[0-9]{12}(?:[0-9]{3})?|(?:5[1-5][0-9]{2}|222[1-9]|22[3-9][0-9]|2[3-6][0-9]{2}|27[01][0-9]|2720)[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|6(?:011|5[0-9]{2})[0-9]{12}|(?:2131|1800|35\d{3})\d{11})" title="Must be a valid credit card number without delimiters"/>
+												</div>
+												<div class="4u 12u(mobilep)">
+													<input type="text" name="expdate" id="expdate" placeholder="Exp. Date mm/dd/yyyy" required pattern="(0[1-9]|1[012])[- \/.](0[1-9]|[12][0-9]|3[01])[- \/.](19|20)\d\d" title="Date must match the given format"/>
+												</div>
+												<div class="4u 12u(mobilep)">
+													<input type="text" name="cvv" id="cvv" placeholder="CVV" required pattern="[0-9]{3,4}"/>
 												</div>
 											</div>
 											<div class="row 50%">
@@ -175,7 +217,7 @@ ob_start();
 <?php
  $valid = True;
 		// define variables and set to empty values
-	$fname = $lname= $email = $address = $city = $state = $zip= "";
+	$fname = $lname= $email = $address = $city = $state = $zip= $carddate = $cardnum = $cvv = "";
 	$fieldError = "";
 	if ($_SERVER["REQUEST_METHOD"] == "POST")
 	{
@@ -186,6 +228,9 @@ ob_start();
 		$city = $_POST["city"];
 		$state = $_POST["state"];
 		$zip = $_POST["zip"];
+		$carddate = $_POST["expdate"];
+		$cardnum = $_POST["cardnum"];
+		$cvv = $_POST["cvv"];
 		
 		if (!(preg_match("/^[a-zA-Z]+$/",$fname) && preg_match("/^[a-zA-Z]+$/",$lname)))
 		{

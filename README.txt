@@ -1,37 +1,14 @@
-Arcana by HTML5 UP
-html5up.net | @ajlkn
-Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+CHECKOUT WITH PAYPAL REST API DEMO
 
+1) Download PHP server.
+Use a server such as XAMPP (https://www.apachefriends.org/index.html) to be able to host the Demo code sample.
 
-A business/corporate style responsive site template. It's pretty barebones but should
-go over pretty well for folks wanting to get their serious business on.
+2) Browse to the htdocs directory of xampp. Unzip the downloaded demo code folder and place it in this htdocs directory.
 
-Demo images* courtesy of Unsplash, a radtastic collection of CC0 (public domain) images
-you can use for pretty much whatever.
+3) Start the Apache server in XAMPP from the XAMPP control panel.
 
-(* = Not included)
+4) Open the website in the browser and access it as: http://my_domain/php_code_folder_name/index.php
+   Here, my_domain will be localhost if hosting on your own machine.
+   The php_code_folder_name is the name of the folder under which the downloaded code resides ('Checkout' folder in case you have not changed the default name).
 
-Feedback, bug reports, and comments are not only welcome, but strongly encouraged :)
-
-AJ
-aj@lkn.io | @ajlkn
-
-PS: Not sure how to get that contact form working? Give formspree.io a try (it's awesome).
-
-
-Credits:
-
-	Demo Images:
-		Unsplash (unsplash.com)
-
-	Icons:
-		Font Awesome (fortawesome.github.com/Font-Awesome)
-
-	Other:
-		jQuery (jquery.com)
-		html5shiv.js (@afarkas @jdalton @jon_neal @rem)
-		CSS3 Pie (css3pie.com)
-		background-size polyfill (github.com/louisremi)
-		Respond.js (j.mp/respondjs)
-		jquery.dropotron (@ajlkn)
-		Skel (skel.io)
+5) Read further instructions on the above page you open.
