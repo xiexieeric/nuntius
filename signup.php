@@ -75,27 +75,27 @@ ob_start();
 										?>">
 											<div class="row 50%">
 												<div class="4u 12u(mobilep)">
-													<input type="text" name="fname" id="fname" placeholder="First Name" />
+													<input type="text" name="fname" id="fname" placeholder="First Name" required pattern="[a-zA-Z]+" title="Names can only contain letters"/>
 												</div>
 												<div class="4u 12u(mobilep)">
-													<input type="text" name="lname" id="lname" placeholder="Last Name" />
+													<input type="text" name="lname" id="lname" placeholder="Last Name" required pattern="[a-zA-Z]+" title="Names can only contain letters"/>
 												</div>
 												<div class="4u 12u(mobilep)">
-													<input type="email" name="email" id="email" placeholder="Email" />
+													<input type="email" name="email" id="email" placeholder="Email" required/>
 												</div>
 											</div>
 											<div class="row 50%">
 												<div class="6u 12u(mobilep)">
-													<input type="text" name="address" id="address" placeholder="Street Address" />
+													<input type="text" name="address" id="address" placeholder="Street Address" required pattern="\s*\S+(?:\s+\S+){2,5}" title="Please enter a valid address"/>
 												</div>
 												<div class="3u 12u(mobilep)">
-													<input type="text" name="city" id="city" placeholder="City" />
+													<input type="text" name="city" id="city" placeholder="City" required pattern="[a-zA-Z]+" title="City names can only contain letters"/>
 												</div>
 												<div class="1u 12u(mobilep)">
-													<input type="text" name="state" id="state" placeholder="State" />
+													<input type="text" name="state" id="state" placeholder="State" required pattern="[a-zA-Z]{2}" title="State names can only contain letters."/>
 												</div>
 												<div class="2u 12u(mobilep)">
-													<input type="text" name="zip" id="zip" placeholder="Zip Code" />
+													<input type="text" name="zip" id="zip" placeholder="Zip Code" required pattern="\d{5}(?:[-\s]\d{4})?" title="Please enter a valid zipcode"/>
 												</div>
 											</div>
 											<div class="row 50%">
